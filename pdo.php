@@ -2,6 +2,7 @@
 /*
 Code by Pro45s.com
 ผู้พัฒนาโค้ด เจตน์สฤษฎิ์  พนิตอนงกริต
+Developer by Mr.Chetsarhit  Phanitanongkrit
 เมื่อ 2 กรกฏาคม 58
 
 โค้ดใช้งาน การเชื่อมต่อฐานข้อมูลด้วย PDO Class (PHP Data Objects V2.0)
