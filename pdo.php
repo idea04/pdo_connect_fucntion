@@ -52,7 +52,7 @@ function getpdo($c,$s,$o=NULL,$b=NULL,$d=NULL){ /*รับคำสั่งป
      if(isset($_COOKIE))foreach($_COOKIE as $k => $v) if(strstr($s,':cook_'.$k))$p[':cook_'.$k]=$v;       
      if(isset($_SESSION))foreach($_SESSION as $k => $v) if(strstr($s,':sess_'.$k))$p[':sess_'.$k]=$v;         
      $c = $c->prepare($s, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));    
-    foreach($p as $k => $v)if(is_numeric($v))$c->bindValue($k, (int)$v, PDO::PARAM_INT);else $c->bindValue($k, $v, PDO::PARAM_STR);$rs=$c->execute();
+    foreach($p as $k => $v){if(trim($v)==NULL){ echo  ' Error: '.$k; return; }if(is_numeric($v))$c->bindValue($k, (int)$v, PDO::PARAM_INT);else $c->bindValue($k, $v, PDO::PARAM_STR);}$rs=$c->execute();
     if(/*return field*/strlen($o)>1){$s=$c->fetchAll();foreach($s as $w)if(isset($w))$r=$w;if(!isset ($r))return ':(';$s=$r[$o]; if($b)$s.=' '.$r[$b];if($d)$s.=' '.$r[$d];return $s; }
     if(/*return array*/$o==1){return $a=$c->fetchAll();foreach($a as $w)if(!isset ($w))return array();$r=$w;return $r;}
     if(/*count row*/$o==2){return $c->rowCount();}
