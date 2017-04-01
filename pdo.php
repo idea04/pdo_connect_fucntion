@@ -21,7 +21,7 @@ Developer by Mr.Chetsarhit  Phanitanongkrit
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
 
-ตัวอย่างการใช้งาน
+ตัวอย่างการใช้งาน 45
 $conn=conpdo();
 $rs=getpdo($conn,"script sql");
 
